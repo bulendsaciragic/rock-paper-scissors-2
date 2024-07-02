@@ -6,25 +6,65 @@ function getComputerChoice () {
 
         const RandomInt = getRandomInt();
         
-        let ComputerChoice;
+        let computerChoice;
 
         if (RandomInt === 0) {
-            ComputerChoice = "Rock";
+            computerChoice = "Rock";
         } else if (RandomInt === 1) {
-            ComputerChoice = "Paper";
+            computerChoice = "Paper";
         } else if (RandomInt === 2){
-            ComputerChoice = "Scissors";
+            computerChoice = "Scissors";
         }
 
-        return ComputerChoice;
+        return computerChoice.toLowerCase();
 }
-
-console.log(getComputerChoice())
 
 function getHumanChoice () {
-    let HumanChoice = prompt("Rock, Paper or Scissors?");
-    return HumanChoice; 
+    let humanChoice = prompt("Rock, Paper or Scissors?");
+    return humanChoice.toLowerCase(); 
 }
 
-console.log(getHumanChoice());
+// console.log(getComputerChoice());
+// console.log(getHumanChoice());
 
+let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
+
+// console.log(computerChoice);
+// console.log(humanChoice);
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound (humanChoice, computerChoice) {
+    
+    if (humanChoice === computerChoice) {
+        humanScore = humanScore + 1;
+        computerScore = computerScore + 1;
+        alert(`Draw! You said ${humanChoice} and computer said ${computerChoice} too. Result is ${humanScore}:${computerScore}.`);
+        
+    } else if (humanChoice === "rock" && computerChoice === "scissors"){
+        humanScore = humanScore + 1;
+        alert(`You won! You said ${humanChoice} and computer said ${computerChoice}. Result is ${humanScore}:${computerScore}.`);
+    } else if (humanChoice === "rock" && computerChoice === "paper"){
+        computerScore = computerScore + 1;
+        alert(`You lost! You said ${humanChoice} and computer said ${computerChoice}. Result is ${humanScore}:${computerScore}.`);
+    } else if (humanChoice === "paper" && computerChoice === "rock"){
+        humanScore = humanScore + 1;
+        alert(`You won! You said ${humanChoice} and computer said ${computerChoice}. Result is ${humanScore}:${computerScore}.`);
+    } else if (humanChoice === "paper" && computerChoice === "scissors"){
+        computerScore = computerScore + 1;
+        alert(`You lost! You said ${humanChoice} and computer said ${computerChoice}. Result is ${humanScore}:${computerScore}.`);
+    } else if (humanChoice === "scissors" && computerChoice === "rock"){
+        computerScore = computerScore + 1;
+        alert(`You lost! You said ${humanChoice} and computer said ${computerChoice}. Result is ${humanScore}:${computerScore}.`);
+    } else if (humanChoice === "scissors" && computerChoice === "paper"){
+        humanScore = humanScore + 1;
+        alert(`You won! You said ${humanChoice} and computer said ${computerChoice}. Result is ${humanScore}:${computerScore}.`);
+    } else {
+        alert("Dunno!");
+    }
+
+}
+
+playRound(humanChoice, computerChoice);
