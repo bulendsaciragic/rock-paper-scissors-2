@@ -69,7 +69,8 @@ function playGame() {
             roundCount = roundCount + 1;
             alert(`You won! You said ${humanChoice} and computer said ${computerChoice}. Result is ${humanScore}:${computerScore}.`);
         } else {
-            alert("Dunno!");
+            alert("Wrong input! Try again.");
+            playRound(humanChoice, computerChoice);
         }
     
     }
